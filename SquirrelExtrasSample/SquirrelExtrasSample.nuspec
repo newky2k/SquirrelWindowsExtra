@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SquirrelExtrasSample</id>
+    <version>1.1.0</version>
+    <authors>Me</authors>
+    <owners>Me</owners>
+    <description>HelloWorld - SquirrelExtrasSample</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright ©  2017</copyright>
+  </metadata>
+  <files>
+    <file src="bin\Release\*.*" target="lib\net471\" exclude="*.pdb;*.vshost.*"/>
+  </files>
+</package>

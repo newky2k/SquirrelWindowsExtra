@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSoft.SquirrelWindows.Exrtras", "DSoft.SquirrelWindows.Exrtras\DSoft.SquirrelWindows.Exrtras.csproj", "{1FB09C49-7093-489A-B33B-3D90068EA76B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelExtrasSample", "SquirrelExtrasSample\SquirrelExtrasSample.csproj", "{3AD69AAC-C633-4927-AE04-6058474CDE88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FB09C49-7093-489A-B33B-3D90068EA76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB09C49-7093-489A-B33B-3D90068EA76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB09C49-7093-489A-B33B-3D90068EA76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB09C49-7093-489A-B33B-3D90068EA76B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD69AAC-C633-4927-AE04-6058474CDE88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD69AAC-C633-4927-AE04-6058474CDE88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD69AAC-C633-4927-AE04-6058474CDE88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD69AAC-C633-4927-AE04-6058474CDE88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {455AD189-C042-43BB-8BE3-3F17424858CD}
+	EndGlobalSection
+EndGlobal
