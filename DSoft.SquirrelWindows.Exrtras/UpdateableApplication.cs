@@ -33,6 +33,7 @@ namespace DSoft.SquirrelWindows.Exrtras
         {
             base.OnStartup(e);
 
+            //need to create a temp window so that the user can load their own window later
             _tempMainWindow = new Window()
             {
                 Visibility = Visibility.Hidden
@@ -58,17 +59,22 @@ namespace DSoft.SquirrelWindows.Exrtras
                     {
                         var clstyoe = this.GetType();
 
+                        //check to see if the ContinueStartupAsync has been overridden
                         var method = clstyoe.GetMethod("ContinueStartupAsync");
                         // var method2 = clstyoe.GetMethod("ContinueStartup"); 
 
+
                         if (method.DeclaringType != typeof(UpdateableApplication))
                         {
+                            //call the overriden method
                             await ContinueStartupAsync();
                         }
 
+                        //check to see if the ContinueStartup has been overridden
                         var method2 = clstyoe.GetMethod("ContinueStartup");
                         if (method2.DeclaringType != typeof(UpdateableApplication))
                         {
+                            //call the overriden method
                             ContinueStartup();
                         }
 
