@@ -129,9 +129,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DSoft.SquirrelWindows.Exrtras\DSoft.SquirrelWindows.Exrtras.csproj">
+    <ProjectReference Include="..\DSoft.SquirrelWindows.Extras\DSoft.SquirrelWindows.Extras.csproj">
       <Project>{1fb09c49-7093-489a-b33b-3d90068ea76b}</Project>
-      <Name>DSoft.SquirrelWindows.Exrtras</Name>
+      <Name>DSoft.SquirrelWindows.Extras</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

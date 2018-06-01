@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DSoft.SquirrelWindows.Exrtras
+namespace DSoft.SquirrelWindows.Extras
 {
     public abstract class UpdateableApplication : Application
     {
@@ -39,6 +39,7 @@ namespace DSoft.SquirrelWindows.Exrtras
                 Visibility = Visibility.Hidden
             };
 
+            var shouldRestart = false;
 
             using (var _updateManager = new UpdateManager(UpdatePath))
             {
@@ -54,38 +55,41 @@ namespace DSoft.SquirrelWindows.Exrtras
                     if (results == true)
                     {
                         //restart app
-                    }
-                    else
-                    {
-                        var clstyoe = this.GetType();
-
-                        //check to see if the ContinueStartupAsync has been overridden
-                        var method = clstyoe.GetMethod("ContinueStartupAsync");
-                        // var method2 = clstyoe.GetMethod("ContinueStartup"); 
-
-
-                        if (method.DeclaringType != typeof(UpdateableApplication))
-                        {
-                            //call the overriden method
-                            await ContinueStartupAsync();
-                        }
-
-                        //check to see if the ContinueStartup has been overridden
-                        var method2 = clstyoe.GetMethod("ContinueStartup");
-                        if (method2.DeclaringType != typeof(UpdateableApplication))
-                        {
-                            //call the overriden method
-                            ContinueStartup();
-                        }
-
+                        shouldRestart = true;
                     }
                 }
             }
 
-            _tempMainWindow.Close();
-            _tempMainWindow = null;
+            if (shouldRestart == true)
+            {
+                UpdateManager.RestartApp();
+            }
+            else
+            {
+                var clstyoe = this.GetType();
+
+                //check to see if the ContinueStartupAsync has been overridden
+                var method = clstyoe.GetMethod("ContinueStartupAsync");
+                // var method2 = clstyoe.GetMethod("ContinueStartup"); 
 
 
+                if (method.DeclaringType != typeof(UpdateableApplication))
+                {
+                    //call the overriden method
+                    await ContinueStartupAsync();
+                }
+
+                //check to see if the ContinueStartup has been overridden
+                var method2 = clstyoe.GetMethod("ContinueStartup");
+                if (method2.DeclaringType != typeof(UpdateableApplication))
+                {
+                    //call the overriden method
+                    ContinueStartup();
+                }
+
+                _tempMainWindow.Close();
+                _tempMainWindow = null;
+            }
 
         }
     }

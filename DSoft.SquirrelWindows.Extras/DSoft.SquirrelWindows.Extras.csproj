@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1FB09C49-7093-489A-B33B-3D90068EA76B}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>DSoft.SquirrelWindows.Exrtras</RootNamespace>
-    <AssemblyName>DSoft.SquirrelWindows.Exrtras</AssemblyName>
+    <RootNamespace>DSoft.SquirrelWindows.Extras</RootNamespace>
+    <AssemblyName>DSoft.SquirrelWindows.Extras</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -99,6 +99,7 @@
     <Compile Include="UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateWindowViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

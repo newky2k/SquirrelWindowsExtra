@@ -1,7 +1,7 @@
-﻿<upext:UpdateableApplication x:Class="SquirrelExtrasSample.App"
+﻿<upext:UpdateableApplication
+    xmlns:upext="clr-namespace:DSoft.SquirrelWindows.Extras;assembly=DSoft.SquirrelWindows.Extras" x:Class="SquirrelExtrasSample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:upext="clr-namespace:DSoft.SquirrelWindows.Exrtras;assembly=DSoft.SquirrelWindows.Exrtras">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
          
     </Application.Resources>
