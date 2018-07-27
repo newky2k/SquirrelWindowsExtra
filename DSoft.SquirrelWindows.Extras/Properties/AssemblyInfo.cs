@@ -8,12 +8,12 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DSoft.SquirrelWindows.Exrtras")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Extension library for Squirrel.Windows that provides an ClickOnce style update dialog")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("DSoft")]
 [assembly: AssemblyProduct("DSoft.SquirrelWindows.Exrtras")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ©  2018 Dave Humphreys")]
+[assembly: AssemblyTrademark("DSoft")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

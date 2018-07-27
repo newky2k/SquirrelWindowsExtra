@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>newky2k</authors>
+    <owners>newky2k</owners>
+    <licenseUrl>https://github.com/newky2k/SquirrelWindowsExtra/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/newky2k/SquirrelWindowsExtra</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extension library for Squirrel.Windows that provides an ClickOnce style update dialog</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>WPF Installer</tags>
+  </metadata>
+</package>
