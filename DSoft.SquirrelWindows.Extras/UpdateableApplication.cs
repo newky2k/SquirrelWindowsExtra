@@ -41,24 +41,34 @@ namespace DSoft.SquirrelWindows.Extras
 
             var shouldRestart = false;
 
-            using (var _updateManager = new UpdateManager(UpdatePath))
+            try
             {
-                var updates = await _updateManager.CheckForUpdate();
-
-                if (updates.NeedsUpdate())
+                using (var _updateManager = new UpdateManager(UpdatePath))
                 {
-                    //show the update screen
-                    var upDlg = new UpdateWindow(_updateManager, updates, ApplicationName);
+                    var updates = await _updateManager.CheckForUpdate();
 
-                    var results = upDlg.ShowDialog();
-
-                    if (results == true)
+                    if (updates.NeedsUpdate())
                     {
-                        //restart app
-                        shouldRestart = true;
+                        //show the update screen
+                        var upDlg = new UpdateWindow(_updateManager, updates, ApplicationName);
+
+                        var results = upDlg.ShowDialog();
+
+                        if (results == true)
+                        {
+                            //restart app
+                            shouldRestart = true;
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+               
+            }
+
 
             if (shouldRestart == true)
             {
