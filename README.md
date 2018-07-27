@@ -1,5 +1,5 @@
 # SquirellWindowsExtra
-Provides a ClickOnce style update dialog(WPF) to make it easy to check for updates and provide a UI for appling those updates.
+Provides a ClickOnce style update dialog(WPF) to make it easy to check for updates an provide a UI for appling those updates.
 
 
 ![Screenshot](Screenshot.PNG)
