@@ -11,7 +11,7 @@ namespace DSoft.SquirrelWindows.Extras
 {
     public abstract class UpdateableApplication : Application
     {
-        private UpdateManager _updateManager;
+       
 
         public abstract String UpdatePath { get; }
 
@@ -19,6 +19,7 @@ namespace DSoft.SquirrelWindows.Extras
 
         private Window _tempMainWindow;
 
+#pragma warning disable 1998
         public virtual async Task ContinueStartupAsync()
         {
 
@@ -28,7 +29,7 @@ namespace DSoft.SquirrelWindows.Extras
         {
 
         }
-
+#pragma warning restore 1998
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

@@ -36,26 +36,55 @@ namespace DSoft.SquirrelWindows.Extras
             InitializeComponent();
 
             ViewModel = new UpdateWindowViewModel(updateManager, updates, applicationName);
+
+            ViewModel.OnStatusChanged += OnStatusChanged;
+            ViewModel.OnProgressChanged += OnProgressChanged;
         }
 
-        private void OnSkipButtonClicked(object sender, RoutedEventArgs e)
+        private void OnProgressChanged(object sender, int e)
         {
-            this.DialogResult = false;
+            this.Dispatcher.BeginInvoke((Action)(() =>
+            {
+                if (e > 0)
+                {
+                    pgrProgress.IsIndeterminate = false;
+                    pgrProgress.Value = e;
+                }
+                else
+                {
+                    pgrProgress.IsIndeterminate = true;
+                }
+            }));
+                
         }
 
-        private async void OnOKButtonClicked(object sender, RoutedEventArgs e)
+        private void OnStatusChanged(object sender, Enums.CurrentStatus e)
         {
-            try
-            {
-                await ViewModel.UpdateManager.UpdateApp();
-
-                this.DialogResult = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
            
+                this.Dispatcher.BeginInvoke((Action)(() =>
+                {
+                    switch (e)
+                    {
+                        case Enums.CurrentStatus.Complete:
+                            {
+                                this.DialogResult = true;
+                            }
+                            break;
+                        case Enums.CurrentStatus.Skipped:
+                            {
+                                this.DialogResult = false;
+                            }
+                            break;
+                    }
+
+                }));
+
+        }
+
+        private void OnWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (ViewModel.CurrentStatus == Enums.CurrentStatus.Updating)
+                e.Cancel = true;
         }
     }
 }

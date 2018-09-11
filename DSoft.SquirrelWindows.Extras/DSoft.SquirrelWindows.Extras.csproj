@@ -81,6 +81,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\CurrentStatus.cs" />
     <Compile Include="Extension\UpdateInfoExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

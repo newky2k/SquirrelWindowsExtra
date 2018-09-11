@@ -3,45 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Closing="OnWindowClosing"
                Title="Update Available" Height="225" Width="485" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-
-        </Grid>
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Gray" Background="White">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Margin="10,5,0,0">
-                    <Label FontWeight="Bold">Application Update</Label>
-                    <TextBlock Text="{Binding UpdateMessage, FallbackValue=Update Message}" TextWrapping="Wrap"/>
+                <StackPanel Margin="0,5,0,0">
+                    <Label FontWeight="Bold">Application update</Label>
+                    <TextBlock Margin="10,0,0,0" Text="{Binding UpdateMessage, FallbackValue=Update Message}" TextWrapping="Wrap"/>
                 </StackPanel>
                 <Grid Grid.Column="2" Margin="5,0,5,0">
                     <Image Width="64" Height="64" />
                 </Grid>
             </Grid>
-        </Border> 
-        <Grid Grid.Row="1" VerticalAlignment="Center" Margin="10">
+        </Border>
+        <Grid Grid.Row="1" VerticalAlignment="Top" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Width="100" Margin="5">Current Version:</TextBlock>
                     <TextBlock Width="100" Margin="5" Text="{Binding CurrentVersionNo, FallbackValue=0.0.0}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="100" Margin="5">New Version:</TextBlock>
-                    <TextBlock Width="100" Margin="5"  Text="{Binding NewVersionNo, FallbackValue=0.0.0}" />
+                    <TextBlock Width="100" Margin="5" IsEnabled="{Binding InteractionEnabled}">New Version:</TextBlock>
+                    <TextBlock Width="100" Margin="5" Text="{Binding NewVersionNo, FallbackValue=0.0.0}" />
                 </StackPanel>
-                
             </StackPanel>
+            <ProgressBar x:Name="pgrProgress" Margin="0,5,0,0" Grid.Row="1" Height="20" IsIndeterminate="True" Visibility="{Binding ProgressVisibility}" Minimum="0" Maximum="100" />
         </Grid>
+
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -49,8 +51,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <Button Width="75" Margin="5" Click="OnOKButtonClicked">OK</Button>
-                    <Button Width="75" Margin="5" Click="OnSkipButtonClicked">Skip</Button>
+                    <Button Width="75" Margin="5" Command="{Binding OKCommand}">OK</Button>
+                    <Button Width="75" Margin="5" Command="{Binding SkipCommand}">Skip</Button>
                 </StackPanel>
             </Grid>
         </Border>
