@@ -21,6 +21,7 @@ namespace DSoft.SquirrelWindows.Extras
         private string _CurrentVersionNo;
         private string _ApplicationName;
         private string _NewVersion;
+        private long _updateFileSize;
         #endregion
 
         #region Events
@@ -137,6 +138,14 @@ namespace DSoft.SquirrelWindows.Extras
             }
         }
 
+
+
+        public long UpdateFileSize
+        {
+            get { return _updateFileSize; }
+            set { _updateFileSize = value; NotifyPropertyChanged(nameof(UpdateFileSize)); }
+        }
+
         #endregion
 
         #region Constructors
@@ -156,6 +165,8 @@ namespace DSoft.SquirrelWindows.Extras
             CurrentVersionNo = _updates.CurrentlyInstalledVersion?.Version.ToString() ?? "1.0.0";
 
             NewVersionNo = _updates.FutureReleaseEntry.Version.ToString();
+
+            UpdateFileSize = _updates.FutureReleaseEntry.Filesize;
         }
         #endregion
 
@@ -183,11 +194,6 @@ namespace DSoft.SquirrelWindows.Extras
             catch (Exception ex)
             {
                 CurrentStatus = CurrentStatus.Failed;
-
-                await UpdateManager.UpdateApp((value) =>
-                {
-                    OnProgressChanged?.Invoke(this, value);
-                });
 
                 MessageBox.Show(ex.Message);
             }

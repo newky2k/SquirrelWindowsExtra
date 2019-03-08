@@ -4,44 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Closing="OnWindowClosing"
-               Title="Update Available" Height="225" Width="485" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow">
-    <Grid>
+               Title="Update Available" Height="376" Width="546" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ToolWindow">
+    <Grid Background="#f0f0f0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
+        
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Gray" Background="White">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Margin="0,5,0,0">
+                <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                     <Label FontWeight="Bold">Application update</Label>
-                    <TextBlock Margin="10,0,0,0" Text="{Binding UpdateMessage, FallbackValue=Update Message}" TextWrapping="Wrap"/>
+                    <TextBlock Margin="10,0,0,5" Text="{Binding UpdateMessage, FallbackValue=Update Message}" TextWrapping="Wrap"/>
                 </StackPanel>
                 <Grid Grid.Column="2" Margin="5,0,5,0">
-                    <Image Width="64" Height="64" />
+                    <Image Width="64" Height="64" Source="download.png"  />
                 </Grid>
             </Grid>
         </Border>
-        <Grid Grid.Row="1" VerticalAlignment="Top" Margin="10">
+        <Grid Grid.Row="1"  Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="100" Margin="5">Current Version:</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="20,15,0,0">
+                    <TextBlock Width="100" Margin="5" FontWeight="Bold">Current Version:</TextBlock>
                     <TextBlock Width="100" Margin="5" Text="{Binding CurrentVersionNo, FallbackValue=0.0.0}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="100" Margin="5" IsEnabled="{Binding InteractionEnabled}">New Version:</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="20,15,0,0">
+                    <TextBlock Width="100" Margin="5" IsEnabled="{Binding InteractionEnabled}" FontWeight="Bold">New Version:</TextBlock>
                     <TextBlock Width="100" Margin="5" Text="{Binding NewVersionNo, FallbackValue=0.0.0}" />
                 </StackPanel>
             </StackPanel>
-            <ProgressBar x:Name="pgrProgress" Margin="0,5,0,0" Grid.Row="1" Height="20" IsIndeterminate="True" Visibility="{Binding ProgressVisibility}" Minimum="0" Maximum="100" />
+            <ProgressBar x:Name="pgrProgress" Margin="0,5,0,20" Grid.Row="1" Height="20" IsIndeterminate="True" VerticalAlignment="Bottom" Visibility="{Binding ProgressVisibility}" Minimum="0" Maximum="100" />
         </Grid>
 
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
@@ -51,11 +52,11 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <Button Width="75" Margin="5" Command="{Binding OKCommand}">OK</Button>
-                    <Button Width="75" Margin="5" Command="{Binding SkipCommand}">Skip</Button>
+                    <Button Width="100" Margin="5" Height="26"  Command="{Binding OKCommand}">Install</Button>
+                    <Button Width="100" Margin="5" Height="26" Command="{Binding SkipCommand}">Skip</Button>
                 </StackPanel>
             </Grid>
         </Border>
-
+        
     </Grid>
 </Window>
